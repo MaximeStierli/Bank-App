@@ -46,4 +46,22 @@ public class Customer {
 		this.accounts.add(new Account(number,name,rate,this));
 	}
 
+    public Collection<Account> getAccounts() {
+        return accounts;
+    }
+
+    public int getNumber() {
+        return number;
+    }
+
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+        
+        
+
 }
