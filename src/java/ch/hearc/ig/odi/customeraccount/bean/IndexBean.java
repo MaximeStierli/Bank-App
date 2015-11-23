@@ -7,7 +7,7 @@ package ch.hearc.ig.odi.customeraccount.bean;
 
 import java.io.Serializable;
 import java.util.Locale;
-import javax.enterprise.context.RequestScoped;
+import javax.faces.bean.RequestScoped;
 import javax.faces.context.FacesContext;
 import javax.inject.Named;
 

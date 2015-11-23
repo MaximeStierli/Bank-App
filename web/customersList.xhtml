@@ -6,15 +6,27 @@ To change this template file, choose Tools | Templates
 and open the template in the editor.
 -->
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://xmlns.jcp.org/jsf/html">
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
     <head>
         <title>Accueil</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     </head>
     <body>
         <h1>Liste des clients</h1>
-        <h:dataTable value="" var="">
-            
+        <h:dataTable value="#{CustomersBean.CustomersList}" var="c">
+            <h:column>
+                <f:facet name="header">Nombre</f:facet>
+                #{c.number}
+            </h:column>
+            <h:column>
+                <f:facet name="header">Nom</f:facet>
+                #{c.lastName}
+            </h:column>
+            <h:column>
+                <f:facet name="header">Prenom</f:facet>
+                #{c.firstName}
+            </h:column>
         </h:dataTable>
         <a href="createCustomer.xhtml">Cr&eacute;ation de client</a>
     </body>
