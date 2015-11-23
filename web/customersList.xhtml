@@ -14,18 +14,24 @@ and open the template in the editor.
     </head>
     <body>
         <h1>Liste des clients</h1>
-        <h:dataTable value="#{CustomersBean.CustomersList}" var="c">
+        <h:dataTable value="#{CustomersBean.CustomersList()}" var="c" border="1">
             <h:column>
-                <f:facet name="header">Nombre</f:facet>
-                #{c.number}
+                <f:facet name="header">
+                    <h:outputText value="Nombre"/>
+                </f:facet>
+                <h:outputText value="#{c.number}"/>
             </h:column>
             <h:column>
-                <f:facet name="header">Nom</f:facet>
-                #{c.lastName}
+                <f:facet name="header">
+                    <h:outputText value="Nom"/>
+                </f:facet>
+                <h:outputText value="#{c.lastName}"/>
             </h:column>
             <h:column>
-                <f:facet name="header">Prenom</f:facet>
-                #{c.firstName}
+                <f:facet name="header">
+                    <h:outputText value="Prenom"/>
+                </f:facet>
+                <h:outputText value="#{c.firstName}"/>
             </h:column>
         </h:dataTable>
         <a href="createCustomer.xhtml">Cr&eacute;ation de client</a>

@@ -9,22 +9,20 @@ import ch.hearc.ig.odi.customeraccount.business.Customer;
 import ch.hearc.ig.odi.customeraccount.service.Services;
 import java.io.Serializable;
 import java.util.List;
-import javax.faces.bean.SessionScoped;
-
+import javax.enterprise.context.RequestScoped;
+import javax.inject.Inject;
 import javax.inject.Named;
 
 /**
  *
  * @author Maxime Stierli <maxime.stierli@he-arc.ch>
  */
-@Named(value = "customersBean")
-@SessionScoped
+@Named(value="CustomersBean")
+@RequestScoped
 public class CustomersBean implements Serializable{
-
+    @Inject Services services;
     public List<Customer> CustomersList(){
-        Services services = new Services();
-        List<Customer> customers = services.getCustomersList();
-        return customers;
+        return services.getCustomersList();
     }
     
 }
