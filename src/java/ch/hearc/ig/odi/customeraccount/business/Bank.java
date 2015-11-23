@@ -20,6 +20,8 @@ public class Bank {
     public Bank(int number, String name){
         this.number = number;
         this.name = name;
+        this.customers = new HashMap();
+        this.accounts = new HashMap();
     }
     
     public Account getAccountByNumber(String number){
@@ -46,10 +48,10 @@ public class Bank {
         return cust;
     }
     
-    public Account addAccount(String number, String name, double rate, Customer customer){
+    public void addAccount(String number, String name, double rate, Customer customer){
         Account acc = new Account(number,name,rate,customer);
         this.accounts.put(number, acc);
-        return acc;
+        //return acc;
     }
 
     public int getNumber() {
