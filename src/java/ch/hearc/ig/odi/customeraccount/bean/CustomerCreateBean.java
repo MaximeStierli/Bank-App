@@ -16,7 +16,7 @@ import javax.inject.Inject;
  *
  * @author Maxime Stierli <maxime.stierli@he-arc.ch>
  */
-@Named(value = "customerCreateBean")
+@Named(value = "CustomerCreateBean")
 @RequestScoped
 public class CustomerCreateBean {
 
@@ -29,9 +29,9 @@ public class CustomerCreateBean {
     private int number;
     
     @Inject Services services;
-    public void CreateCustomer(){
+    public int CreateCustomer(){
         services.saveCustomer(number,firstName,lastName);
-        
+        return 1;
     }
 
     public String getFirstName() {

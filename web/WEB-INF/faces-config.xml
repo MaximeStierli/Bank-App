@@ -24,9 +24,8 @@ and open the template in the editor.
         <from-view-id>/createCustomer.xhtml</from-view-id>
         <navigation-case>
             <from-action>#{CustomerCreateBean.CreateCustomer()}</from-action>
-            <from-outcome>success</from-outcome>
+            <from-outcome>1</from-outcome>
             <to-view-id>/createCustomerOk.xhtml</to-view-id>
-            <redirect/>
         </navigation-case>
     </navigation-rule>
 </faces-config>
