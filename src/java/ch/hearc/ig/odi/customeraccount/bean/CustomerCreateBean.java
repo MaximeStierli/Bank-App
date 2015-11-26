@@ -7,23 +7,30 @@ package ch.hearc.ig.odi.customeraccount.bean;
 
 import ch.hearc.ig.odi.customeraccount.business.Customer;
 import ch.hearc.ig.odi.customeraccount.service.Services;
-import java.io.Serializable;
-import java.util.List;
+import javax.inject.Named;
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
-import javax.inject.Named;
 
 /**
  *
  * @author Maxime Stierli <maxime.stierli@he-arc.ch>
  */
-@Named(value="CustomersBean")
+@Named(value = "customerCreateBean")
 @RequestScoped
-public class CustomersBean implements Serializable{
+public class CustomerCreateBean {
+
+    /**
+     * Creates a new instance of CustomerCreateBean
+     */
+    private Customer customer;
     
     @Inject Services services;
-    public List<Customer> CustomersList(){
-        return services.getCustomersList();
+    public void CreateCustomer(){
+        services.saveCustomer(customer.getNumber(),customer.getFirstName(),customer.getLastName());
+    }
+    
+    public Customer getCustomer(){
+        return customer;
     }
     
 }

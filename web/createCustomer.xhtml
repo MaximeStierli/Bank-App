@@ -7,24 +7,23 @@ and open the template in the editor.
 -->
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html">
-    <head>
+    <h:head>
         <title>Client</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    </head>
-    <body>
-        <form method="get" action="customersList.xhtml">
-            <p>
-                <label>Nom:</label>
-                <input type="text" name="nom"/>
-            </p>
-            <p>
-                <label>Pr&eacute;nom:</label>
-                <input type="text" name="prenom"/>
-            </p>
-            <p>
-                <input type="submit" value="Envoyer"/>
-                <input type="reset" value="Effacer"/>
-            </p>
-        </form>
-    </body>
+    </h:head>
+    <h:body>
+        <h1>Cr&eacute;ation d'un nouveau client:</h1>
+        <h:form>
+            <h:outputLabel for="number">Num&eacute;ro: </h:outputLabel>
+            <h:inputText id="number"  value="#{CustomerCreateBean.customer.number}" size="20" required="true" requiredMessage="Erreur: veuillez saisir un numéro"/>
+            <br/>
+            <h:outputLabel for="lastName">Nom: </h:outputLabel>
+            <h:inputText id="lastName"  value="#{CustomerCreateBean.customer.lastName}" size="20" required="true" requiredMessage="Erreur: veuillez saisir un nom"/>
+            <br/>
+            <h:outputLabel for="firstName">Pr&eacute;nom: </h:outputLabel>
+            <h:inputText id="firstName"  value="#{CustomerCreateBean.customer.firstName}" size="20" required="true" requiredMessage="Erreur: veuillez saisir un prénom"/>
+            <br/>
+            <h:commandButton value="Valider" action="#{customerCreateBean.CreateCustomer()}"/>
+        </h:form>
+    </h:body>
 </html>

@@ -9,7 +9,7 @@ and open the template in the editor.
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:f="http://xmlns.jcp.org/jsf/core">
     <head>
-        <title>Accueil</title>
+        <title>Liste des clients</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     </head>
     <body>
@@ -34,6 +34,10 @@ and open the template in the editor.
                 <h:outputText value="#{c.firstName}"/>
             </h:column>
         </h:dataTable>
-        <a href="createCustomer.xhtml">Cr&eacute;ation de client</a>
+        <p>
+            <h:form>
+                <h:commandButton value="Nouveau Client" action="createCustomer.xhtml" />
+            </h:form>          
+        </p>
     </body>
 </html>
