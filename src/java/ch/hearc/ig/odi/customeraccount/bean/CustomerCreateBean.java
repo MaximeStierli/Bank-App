@@ -9,6 +9,7 @@ import ch.hearc.ig.odi.customeraccount.business.Customer;
 import ch.hearc.ig.odi.customeraccount.service.Services;
 import javax.inject.Named;
 import javax.enterprise.context.RequestScoped;
+import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 
 /**
@@ -23,14 +24,40 @@ public class CustomerCreateBean {
      * Creates a new instance of CustomerCreateBean
      */
     private Customer customer;
+    private String firstName;
+    private String lastName;
+    private int number;
     
     @Inject Services services;
     public void CreateCustomer(){
-        services.saveCustomer(customer.getNumber(),customer.getFirstName(),customer.getLastName());
+        services.saveCustomer(number,firstName,lastName);
+        
+    }
+
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
+    public int getNumber() {
+        return number;
+    }
+
+    public void setNumber(int number) {
+        this.number = number;
     }
     
-    public Customer getCustomer(){
-        return customer;
-    }
+    
     
 }

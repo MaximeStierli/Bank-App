@@ -15,13 +15,13 @@ and open the template in the editor.
         <h1>Cr&eacute;ation d'un nouveau client:</h1>
         <h:form>
             <h:outputLabel for="number">Num&eacute;ro: </h:outputLabel>
-            <h:inputText id="number"  value="#{CustomerCreateBean.customer.number}" size="20" required="true" requiredMessage="Erreur: veuillez saisir un numéro"/>
+            <h:inputText id="number"  value="#{CustomerCreateBean.number}" size="20" required="true" requiredMessage="Erreur: veuillez saisir un numéro"/>
             <br/>
             <h:outputLabel for="lastName">Nom: </h:outputLabel>
-            <h:inputText id="lastName"  value="#{CustomerCreateBean.customer.lastName}" size="20" required="true" requiredMessage="Erreur: veuillez saisir un nom"/>
+            <h:inputText id="lastName"  value="#{CustomerCreateBean.lastName}" size="20" required="true" requiredMessage="Erreur: veuillez saisir un nom"/>
             <br/>
             <h:outputLabel for="firstName">Pr&eacute;nom: </h:outputLabel>
-            <h:inputText id="firstName"  value="#{CustomerCreateBean.customer.firstName}" size="20" required="true" requiredMessage="Erreur: veuillez saisir un prénom"/>
+            <h:inputText id="firstName"  value="#{CustomerCreateBean.firstName}" size="20" required="true" requiredMessage="Erreur: veuillez saisir un prénom"/>
             <br/>
             <h:commandButton value="Valider" action="#{customerCreateBean.CreateCustomer()}"/>
         </h:form>

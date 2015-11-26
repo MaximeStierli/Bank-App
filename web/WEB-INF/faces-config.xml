@@ -9,8 +9,7 @@ and open the template in the editor.
 <faces-config version="2.2"
     xmlns="http://xmlns.jcp.org/xml/ns/javaee"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-facesconfig_2_2.xsd">> 
-    
+    xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-facesconfig_2_2.xsd"> 
     <managed-bean>
         <managed-bean-name>CustomersBean</managed-bean-name>
         <managed-bean-class>ch.hearc.ig.odi.customeraccount.bean.CustomersBean</managed-bean-class>
@@ -21,4 +20,13 @@ and open the template in the editor.
         <managed-bean-class>ch.hearc.ig.odi.customeraccount.bean.CustomerCreateBean</managed-bean-class>
         <managed-bean-scope>request</managed-bean-scope>
     </managed-bean>
+    <navigation-rule>
+        <from-view-id>/createCustomer.xhtml</from-view-id>
+        <navigation-case>
+            <from-action>#{CustomerCreateBean.CreateCustomer()}</from-action>
+            <from-outcome>success</from-outcome>
+            <to-view-id>/createCustomerOk.xhtml</to-view-id>
+            <redirect/>
+        </navigation-case>
+    </navigation-rule>
 </faces-config>
