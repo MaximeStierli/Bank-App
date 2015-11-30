@@ -33,7 +33,14 @@ and open the template in the editor.
                 </f:facet>
                 <h:outputText value="#{c.firstName}"/>
             </h:column>
+            <h:column>
+                <f:facet name="header">
+                    <h:outputText value=" " />
+                </f:facet>
+                <h:button value="Details"  outcome="#{customerBean.detailsClients(c.number)}"/> 
+            </h:column>
         </h:dataTable>
+        
         <p>
             <h:form>
                 <h:button value="#{msg['create']}" outcome="createCustomer" />

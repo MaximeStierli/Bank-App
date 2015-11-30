@@ -5,6 +5,7 @@
  */
 package ch.hearc.ig.odi.customeraccount.bean;
 
+import ch.hearc.ig.odi.customeraccount.bean.util.Tool;
 import ch.hearc.ig.odi.customeraccount.business.Customer;
 import ch.hearc.ig.odi.customeraccount.service.Services;
 import java.io.Serializable;
@@ -24,5 +25,11 @@ public class CustomersBean implements Serializable{
     @Inject Services services;
     public List<Customer> CustomersList(){
         return services.getCustomersList();
+    }
+    
+    public String detailsClients (int num_customer){
+        CustomerDetailsBean b = Tool.findBean("customerDetailsBean", CustomerDetailsBean.class);
+         b.setCustomer(services.getCustomer(num_customer));
+        return "detailsClient";
     }
 }

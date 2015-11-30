@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html  xmlns="http://www.w3.org/1999/xhtml"
+       xmlns:h="http://xmlns.jcp.org/jsf/html"
+       xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <head>
+        <title>#{msg['details']}</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    </head>
+    <body>
+        <h:form>
+            <h1>#{msg['details']}</h1>
+            <table>
+                <tr>  
+                    <td><h:outputText value="#{msg['number']}  " /></td>
+                    <td><h:outputText value="#{CustomerDetailsBean.customer.number}" /></td>
+                </tr>
+                <tr>
+                    <td><h:outputText value="#{msg['name']}  " /></td>
+                    <td><h:outputText value="#{CustomerDetailsBean.customer.lastName}" /></td>
+                </tr>
+                <tr>
+                    <td><h:outputText value="#{msg['firstname']}  " /></td>
+                    <td><h:outputText value="#{CustomerDetailsBean.customer.firstName}" /></td>
+                </tr>
+            </table>
+
+            <h1>#{msg['listeComptes']}</h1>
+            
+            <h:dataTable value="#{CustomerDetailsBean.customer.accounts}" var="account"
+                            border="1">
+                   <h:column>
+                       <f:facet name="header">
+                           <h:outputText value="#{msg['numero']}" />
+                       </f:facet>
+                       <h:outputText value="#{account.number}" />
+                   </h:column>
+                   <h:column>
+                       <f:facet name="header">
+                           <h:outputText value="#{msg['libelle']}" />
+                       </f:facet>
+                       <h:outputText value="#{account.libelle}" />
+                   </h:column>
+                   <h:column>
+                       <f:facet name="header">
+                           <h:outputText value="#{msg['solde']}" />
+                       </f:facet>
+                       <h:outputText value="#{account.balance}" />
+                   </h:column>
+                <h:column>
+                       <f:facet name="header">
+                           <h:outputText value="#{msg['taux']}" />
+                       </f:facet>
+                       <h:outputText value="#{account.rate}" />
+                   </h:column>             
+            </h:dataTable>
+            <br/>
+            <h:commandButton value="#{msg['acceuil']}" action="acceuil"/>        
+        </h:form>    
+    </body>
+</html>
