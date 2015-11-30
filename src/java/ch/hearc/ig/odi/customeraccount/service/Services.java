@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import javax.ejb.Stateful;
-import javax.faces.bean.SessionScoped;
+import javax.enterprise.context.SessionScoped;
 
 /**
  * Classe de services qui stocke les données de l'application dans la session de l'utilisateur.

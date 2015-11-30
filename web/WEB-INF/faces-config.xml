@@ -13,12 +13,10 @@ and open the template in the editor.
     <managed-bean>
         <managed-bean-name>CustomersBean</managed-bean-name>
         <managed-bean-class>ch.hearc.ig.odi.customeraccount.bean.CustomersBean</managed-bean-class>
-        <managed-bean-scope>request</managed-bean-scope>
     </managed-bean>
     <managed-bean>
         <managed-bean-name>CustomerCreateBean</managed-bean-name>
         <managed-bean-class>ch.hearc.ig.odi.customeraccount.bean.CustomerCreateBean</managed-bean-class>
-        <managed-bean-scope>request</managed-bean-scope>
     </managed-bean>
     <navigation-rule>
         <from-view-id>/createCustomer.xhtml</from-view-id>

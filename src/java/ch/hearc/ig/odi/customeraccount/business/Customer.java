@@ -21,6 +21,11 @@ public class Customer {
                 this.lastName = lastName;
 	}
 
+        public Customer() {
+            
+        }
+
+        
 	/**
 	 * 
 	 * @param number
@@ -60,6 +65,18 @@ public class Customer {
 
     public String getLastName() {
         return lastName;
+    }
+
+    public void setNumber(int number) {
+        this.number = number;
+    }
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
     }
         
         

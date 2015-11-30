@@ -8,8 +8,8 @@ package ch.hearc.ig.odi.customeraccount.bean;
 import ch.hearc.ig.odi.customeraccount.business.Customer;
 import ch.hearc.ig.odi.customeraccount.service.Services;
 import javax.inject.Named;
-import javax.enterprise.context.RequestScoped;
-import javax.faces.context.FacesContext;
+import java.io.Serializable;
+import javax.enterprise.context.SessionScoped;
 import javax.inject.Inject;
 
 /**
@@ -17,46 +17,33 @@ import javax.inject.Inject;
  * @author Maxime Stierli <maxime.stierli@he-arc.ch>
  */
 @Named(value = "CustomerCreateBean")
-@RequestScoped
-public class CustomerCreateBean {
+@SessionScoped
+public class CustomerCreateBean  implements Serializable{
 
     /**
      * Creates a new instance of CustomerCreateBean
      */
-    private Customer customer;
-    private String firstName;
-    private String lastName;
-    private int number;
-    
     @Inject Services services;
+    private Customer customer = new Customer();
+
+    public CustomerCreateBean() {
+    }
+    
+       
     public int CreateCustomer(){
-        services.saveCustomer(number,firstName,lastName);
+        services.saveCustomer(customer.getNumber(),customer.getLastName(),customer.getFirstName());
+        customer = new Customer();
         return 1;
     }
 
-    public String getFirstName() {
-        return firstName;
+    public Customer getCustomer() {
+        return customer;
     }
 
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
+    public void setCustomer(Customer customer) {
+        this.customer = customer;
     }
-
-    public String getLastName() {
-        return lastName;
-    }
-
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
-    }
-
-    public int getNumber() {
-        return number;
-    }
-
-    public void setNumber(int number) {
-        this.number = number;
-    }
+    
     
     
     

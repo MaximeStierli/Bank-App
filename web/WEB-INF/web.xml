@@ -20,5 +20,5 @@
     </session-config>
     <welcome-file-list>
         <welcome-file>faces/customersList.xhtml</welcome-file>
-    </welcome-file-list>
+    </welcome-file-list>   
 </web-app>

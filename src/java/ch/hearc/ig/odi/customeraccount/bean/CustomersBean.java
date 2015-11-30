@@ -25,5 +25,4 @@ public class CustomersBean implements Serializable{
     public List<Customer> CustomersList(){
         return services.getCustomersList();
     }
-    
 }
