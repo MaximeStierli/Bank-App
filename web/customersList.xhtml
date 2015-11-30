@@ -9,34 +9,34 @@ and open the template in the editor.
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:f="http://xmlns.jcp.org/jsf/core">
     <head>
-        <title>Liste des clients</title>
+        <title>#{msg['title']}</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     </head>
     <body>
-        <h1>Liste des clients</h1>
+        <h1>#{msg['title']}</h1>
         <h:dataTable value="#{CustomersBean.CustomersList()}" var="c" border="1">
             <h:column>
                 <f:facet name="header">
-                    <h:outputText value="Nombre"/>
+                    <h:outputText value="#{msg['number']}"/>
                 </f:facet>
                 <h:outputText value="#{c.number}"/>
             </h:column>
             <h:column>
                 <f:facet name="header">
-                    <h:outputText value="Nom"/>
+                    <h:outputText value="#{msg['name']}"/>
                 </f:facet>
                 <h:outputText value="#{c.lastName}"/>
             </h:column>
             <h:column>
                 <f:facet name="header">
-                    <h:outputText value="Prenom"/>
+                    <h:outputText value="#{msg['firstname']}"/>
                 </f:facet>
                 <h:outputText value="#{c.firstName}"/>
             </h:column>
         </h:dataTable>
         <p>
             <h:form>
-                <h:button value="Nouveau Client" outcome="createCustomer" />
+                <h:button value="#{msg['create']}" outcome="createCustomer" />
             </h:form>          
         </p>
     </body>

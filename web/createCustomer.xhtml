@@ -8,22 +8,22 @@ and open the template in the editor.
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html">
     <h:head>
-        <title>Client</title>
+        <title>#{msg['titleCreate']}</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     </h:head>
     <h:body>
-        <h1>Création d'un nouveau client:</h1>
+        <h1>#{msg['titleCreate']}</h1>
         <h:form>
-            <h:outputLabel for="number">Numéro: </h:outputLabel>
-            <h:inputText id="number"  value="#{CustomerCreateBean.customer.number}" size="20" required="true" requiredMessage="Erreur: veuillez saisir un numéro"/>
+            <h:outputLabel for="number">#{msg['number']} </h:outputLabel>
+            <h:inputText id="number"  value="#{CustomerCreateBean.customer.number}" size="20" required="true" requiredMessage="#{msg['err_number']}"/>
             <br/>
-            <h:outputLabel for="lastName">Nom: </h:outputLabel>
-            <h:inputText id="lastName"  value="#{CustomerCreateBean.customer.lastName}" size="20" required="true" requiredMessage="Erreur: veuillez saisir un nom"/>
+            <h:outputLabel for="lastName">#{msg['name']} </h:outputLabel>
+            <h:inputText id="lastName"  value="#{CustomerCreateBean.customer.lastName}" size="20" required="true" requiredMessage="#{msg['err_name']}"/>
             <br/>
-            <h:outputLabel for="firstName">Prénom: </h:outputLabel>
-            <h:inputText id="firstName"  value="#{CustomerCreateBean.customer.firstName}" size="20" required="true" requiredMessage="Erreur: veuillez saisir un prénom"/>
+            <h:outputLabel for="firstName">#{msg['firstname']} </h:outputLabel>
+            <h:inputText id="firstName"  value="#{CustomerCreateBean.customer.firstName}" size="20" required="true" requiredMessage="#{msg['err_firstname']}"/>
             <br/>
-            <h:commandButton value="Valider" action="#{CustomerCreateBean.CreateCustomer()}"/>
+            <h:commandButton value="#{msg['submit']}" action="#{CustomerCreateBean.CreateCustomer()}"/>
         </h:form>
     </h:body>
 </html>
