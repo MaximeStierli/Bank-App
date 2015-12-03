@@ -14,37 +14,30 @@ and open the template in the editor.
     </head>
     <body>
         <h1>#{msg['title']}</h1>
-        <h:dataTable value="#{CustomersBean.CustomersList()}" var="c" border="1">
-            <h:column>
-                <f:facet name="header">
-                    <h:outputText value="#{msg['number']}"/>
-                </f:facet>
-                <h:outputText value="#{c.number}"/>
-            </h:column>
-            <h:column>
-                <f:facet name="header">
-                    <h:outputText value="#{msg['name']}"/>
-                </f:facet>
-                <h:outputText value="#{c.lastName}"/>
-            </h:column>
-            <h:column>
-                <f:facet name="header">
-                    <h:outputText value="#{msg['firstname']}"/>
-                </f:facet>
-                <h:outputText value="#{c.firstName}"/>
-            </h:column>
-            <h:column>
-                <f:facet name="header">
-                    <h:outputText value=" " />
-                </f:facet>
-                <h:button value="Details"  outcome="#{customerBean.detailsClients(c.number)}"/> 
-            </h:column>
-        </h:dataTable>
-        
-        <p>
-            <h:form>
-                <h:button value="#{msg['create']}" outcome="createCustomer" />
-            </h:form>          
-        </p>
+        <h:form>
+            <h:dataTable value="#{CustomersBean.CustomersList()}" var="c" border="1">
+                <h:column>
+                    <f:facet name="header">
+                        <h:outputText value="#{msg['number']}"/>
+                    </f:facet>
+                    <h:commandLink value="#{c.number}" action="#{CustomerDetailsBean.showCustomer(c)}"/>
+                </h:column>
+                <h:column>
+                    <f:facet name="header">
+                        <h:outputText value="#{msg['name']}"/>
+                    </f:facet>
+                    <h:commandLink value="#{c.lastName}" action="#{CustomerDetailsBean.showCustomer(c)}"/>
+                </h:column>
+                <h:column>
+                    <f:facet name="header">
+                        <h:outputText value="#{msg['firstname']}"/>
+                    </f:facet>
+                    <h:commandLink value="#{c.firstName}" action="#{CustomerDetailsBean.showCustomer(c)}"/>
+                </h:column>
+            </h:dataTable>
+
+            <br/>
+            <h:commandButton value="#{msg['create']}" action="createCustomer" />
+        </h:form>          
     </body>
 </html>

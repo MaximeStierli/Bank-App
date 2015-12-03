@@ -4,7 +4,7 @@ import java.util.*;
 
 public class Customer {
 
-	private Collection<Account> accounts;
+	private HashMap<String,Account> accounts;
 	private int number;
 	private String firstName;
 	private String lastName;
@@ -31,14 +31,7 @@ public class Customer {
 	 * @param number
 	 */
 	public Account getAccountByNumber(String number) {
-                boolean Exist = false;
-		for (Account account : accounts){
-                    if(account.getNumber() == number){
-                        Exist = true;
-                        return account;
-                    }
-                }
-                throw new IllegalArgumentException("Le compte n'existe pas !");
+                return accounts.get(number);
 	}
 
 	/**
@@ -48,10 +41,10 @@ public class Customer {
 	 * @param rate
 	 */
 	public void addAccount(String number, String name, double rate) {
-		this.accounts.add(new Account(number,name,rate,this));
+		this.accounts.put(number,new Account(number,name,rate,this));
 	}
 
-    public Collection<Account> getAccounts() {
+    public HashMap<String,Account> getAccounts() {
         return accounts;
     }
 

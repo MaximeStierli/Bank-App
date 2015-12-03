@@ -16,27 +16,12 @@ and open the template in the editor.
             <default-locale>fr</default-locale>
             <supported-locale>fr</supported-locale>
             <supported-locale>en</supported-locale>
-        </locale-config>
-        
+        </locale-config>        
         <resource-bundle>
             <base-name>ch.hearc.ig.odi.customeraccount.internationalization.msg</base-name>
             <var>msg</var>
         </resource-bundle>
-    </application>
-
-    <managed-bean>
-        <managed-bean-name>CustomersBean</managed-bean-name>
-        <managed-bean-class>ch.hearc.ig.odi.customeraccount.bean.CustomersBean</managed-bean-class>
-    </managed-bean>
-    <managed-bean>
-        <managed-bean-name>CustomerCreateBean</managed-bean-name>
-        <managed-bean-class>ch.hearc.ig.odi.customeraccount.bean.CustomerCreateBean</managed-bean-class>
-    </managed-bean>
-        <managed-bean>
-        <managed-bean-name>CustomerDetailsBean</managed-bean-name>
-        <managed-bean-class>ch.hearc.ig.odi.customeraccount.bean.CustomerDetailsBean</managed-bean-class>
-    </managed-bean>
-    
+    </application>   
     
     <navigation-rule>
         <from-view-id>/createCustomer.xhtml</from-view-id>
@@ -46,11 +31,31 @@ and open the template in the editor.
         </navigation-case>
     </navigation-rule>
     
-    <navigation-rule>
+     <navigation-rule>
         <from-view-id>/customersList.xhtml</from-view-id>
         <navigation-case>
-            <from-outcome>detailsClient</from-outcome>
+            <from-outcome>CreateCustomer</from-outcome>
+            <to-view-id>/createCustomer.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-action>#{CustomerDetailsBean.showCustomer(c)}</from-action>          
+            <from-outcome>show</from-outcome>
+            <to-view-id>/detailsCustomer.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-action>#{CustomerDetailsBean.showCustomer(c)}</from-action>          
+            <from-outcome>error</from-outcome>
             <to-view-id>/detailsCustomer.xhtml</to-view-id>
         </navigation-case>
     </navigation-rule>
+    
+    <navigation-rule>
+        <from-view-id>/detailsCustomer.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>accueil</from-action>
+            <to-view-id>/customersList.xhtml</to-view-id>
+        </navigation-case>
+        
+    </navigation-rule>
+    
 </faces-config>
